@@ -1,10 +1,10 @@
 package co.edu.uco.ucobet.dto;
 
-import co.edu.uco.crosscutting.helpers.TextHelper;
 import co.edu.uco.crosscutting.helpers.UUIDHelper;
+import co.edu.uco.crosscutting.helpers.TextHelper;
 
-public class DomainDTO {
-	
+class DomainDTO {
+
 	private String id;
 	
 	protected DomainDTO(final String id) {
@@ -18,4 +18,5 @@ public class DomainDTO {
 	protected void setIdentifier(final String id) {
 		this.id = TextHelper.getDefault(id, UUIDHelper.getDefaultAsString());
 	}
+	
 }

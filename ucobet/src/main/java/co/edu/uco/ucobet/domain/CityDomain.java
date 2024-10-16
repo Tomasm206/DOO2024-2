@@ -18,18 +18,18 @@ public class CityDomain extends Domain{
 	}
 	
 	public static final CityDomain create(final UUID id, final String name, final StateDomain state) {
-		return new CityDomain(id,name,state);
+		return new CityDomain(id, name, state);
 	}
 	
-	static final CityDomain create() {
-		return new CityDomain(UUIDHelper.getDefault(),TextHelper.EMPTY,StateDomain.create());
+	public static final CityDomain create() {
+		return new CityDomain(UUIDHelper.getDefault(), TextHelper.EMPTY, StateDomain.create());
 	}
 	
 	public String getName() {
 		return name;
 	}
 
-	private void setName(String name) {
+	private void setName(final String name) {
 		this.name = TextHelper.applyTrim(name);
 	}
 	
@@ -42,8 +42,8 @@ public class CityDomain extends Domain{
 		return state;
 	}
 
-	public void setState(final StateDomain state) {
-		this.state = ObjectHelper.getDefault(state, StateDomain.create());
+	private void setState(final StateDomain country) {
+		this.state = ObjectHelper.getDefault(country, StateDomain.create());
 	}
 	
 }

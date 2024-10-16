@@ -9,21 +9,23 @@ public class CountryDTO extends DomainDTO{
 	
 	public CountryDTO() {
 		super(UUIDHelper.getDefaultAsString());
-		setName(name);
+		setName(TextHelper.EMPTY);
 	}
 
 	public static final CountryDTO create() {
 		return new CountryDTO();
+		
 	}
-	
 	public String getName() {
 		return name;
 	}
-
-	public CountryDTO setName(String name) {
-		this.name = TextHelper.applyTrim(name);
+	
+	public CountryDTO setName(final String name) {
+		this.name = TextHelper.applyTrim (name);
 		return this;
+		
 	}
+	
 	
 	public CountryDTO setId(final String id) {
 		super.setIdentifier(id);
@@ -34,4 +36,5 @@ public class CountryDTO extends DomainDTO{
 	public String getId() {
 		return super.getId();
 	}
+
 }

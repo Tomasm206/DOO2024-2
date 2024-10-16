@@ -5,6 +5,7 @@ import co.edu.uco.crosscutting.helpers.TextHelper;
 import co.edu.uco.crosscutting.helpers.UUIDHelper;
 
 public class CityDTO extends DomainDTO{
+	
 	private String name;
 	private StateDTO state;
 	
@@ -16,12 +17,18 @@ public class CityDTO extends DomainDTO{
 
 	public static final CityDTO create() {
 		return new CityDTO();
+		
+	}
+	public String getName() {
+		return name;
 	}
 	
 	public CityDTO setName(final String name) {
-		this.name = TextHelper.applyTrim(name);
+		this.name = TextHelper.applyTrim (name);
 		return this;
+		
 	}
+	
 	
 	public CityDTO setId(final String id) {
 		super.setIdentifier(id);
@@ -29,7 +36,7 @@ public class CityDTO extends DomainDTO{
 	}
 	
 	@Override
-	protected String getId() {
+	public String getId() {
 		return super.getId();
 	}
 
@@ -41,6 +48,5 @@ public class CityDTO extends DomainDTO{
 		this.state = ObjectHelper.getDefault(state, StateDTO.create());
 		return this;
 	}
-	
 	
 }

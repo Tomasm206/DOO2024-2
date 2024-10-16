@@ -11,4 +11,3 @@ class Ucobet11ApplicationTests {
 	}
 
 }
-
