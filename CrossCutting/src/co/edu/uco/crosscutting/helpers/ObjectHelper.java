@@ -1,18 +1,15 @@
 package co.edu.uco.crosscutting.helpers;
 
 public class ObjectHelper {
-
-	private ObjectHelper() {
-
-	}
-
-	public static <O> boolean isNull(final O Object) {
-		return Object == null;
-
-	}
-	
-	public static <O> O getDefault(final O Object,final O defaultObject) {
-		return isNull(Object) ? defaultObject : Object;
-					
-		}		
+		private ObjectHelper() {
+			
+		}
+		
+		public static <O> boolean isNull(final O object) {
+			return object == null;
+		}
+		public static <O> O getDefault(final O object, final O defaultObject) {		
+			return isNull(object)? defaultObject : object;
+		}
 }
+

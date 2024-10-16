@@ -1,39 +1,25 @@
 package co.edu.uco.crosscutting.helpers;
 
 public class TextHelper {
-	
-	public static final String EMPTY = "";
-	
+
+	public static final String EMPTY ="";
 	private TextHelper() {
 		
 	}
-	
 	public static boolean isNull(final String string) {
 		return ObjectHelper.isNull(string);
 	}
-	
-	public static String getDefault(final String string, final String defaultValuve) {
-		return ObjectHelper.getDefault(string, defaultValuve);
-	}
-	
-	public static String getDefault(final String string) {
-		return getDefault(string, EMPTY);
+	public static String getDefault(final String string, String string2) {
+		return ObjectHelper.getDefault(string, EMPTY);
 	}
 	
 	public static boolean isEmpty(final String string) {
-		return EMPTY.equals(getDefault( string));
+		return EMPTY.equals(getDefault(string, null));
 	}
-	
-	public static boolean isEmptyApplyingTrim(final String string) {
+	public static boolean isEmptyapplyingTrim(final String string) {
 		return isEmpty(applyTrim(string));
 	}
-	
 	public static String applyTrim(final String string) {
-		return getDefault(string).trim();
-	}
-	
-	public static void main(String[] args) {
-		String b = null;
-		System.out.println(isEmpty(b));
+		return getDefault(string, null).trim();
 	}
 }

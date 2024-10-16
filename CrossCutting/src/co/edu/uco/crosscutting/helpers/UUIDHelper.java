@@ -3,14 +3,11 @@ package co.edu.uco.crosscutting.helpers;
 import java.util.UUID;
 
 public final class UUIDHelper {
+
 	private static final String DEFAULT_UUID_STRING = "00000000-0000-0000-0000-000000000000";
 
 	private UUIDHelper() {
 		super();
-	}
-	
-	public static final String getDefaultAsString() {
-		return DEFAULT_UUID_STRING;
 	}
 
 	public static final UUID convertToUUID(final String uuidAsString) {
@@ -37,4 +34,8 @@ public final class UUIDHelper {
 		return getDefault(convertToUUID(uuidAsString), getDefault()).equals(getDefault());
 	}
 
+	public static String getDefaultAsString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
