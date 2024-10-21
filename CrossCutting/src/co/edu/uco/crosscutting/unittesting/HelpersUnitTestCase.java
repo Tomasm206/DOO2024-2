@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import co.edu.uco.crosscutting.ObjectHelper;
+import co.edu.uco.crosscutting.helpers.ObjectHelper;
 
 class HelpersUnitTestCase {
 
