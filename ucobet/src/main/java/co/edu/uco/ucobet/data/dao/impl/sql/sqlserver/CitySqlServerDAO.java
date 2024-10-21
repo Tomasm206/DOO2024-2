@@ -1,14 +1,14 @@
 package co.edu.uco.ucobet.data.dao.impl.sql.sqlserver;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.UUID;
 
+import co.edu.uco.ucobet.crosscutting.exceptions.DataUcoBetException;
 import co.edu.uco.ucobet.data.dao.CityDAO;
-import co.edu.uco.ucobet.data.dao.CountryDAO;
 import co.edu.uco.ucobet.data.dao.impl.sql.SqlDAO;
 import co.edu.uco.ucobet.entity.CityEntity;
-import co.edu.uco.ucobet.entity.CountryEntity;
 
 public final class CitySqlServerDAO extends SqlDAO implements CityDAO {
 
@@ -16,7 +16,6 @@ public final class CitySqlServerDAO extends SqlDAO implements CityDAO {
 		super(connection);
 		// TODO Auto-generated constructor stub
 	}
-
 	@Override
 	public void create(final CityEntity data) {
 		 
@@ -39,7 +38,7 @@ public final class CitySqlServerDAO extends SqlDAO implements CityDAO {
 		}
  
 	}
-
+ 
 	@Override
 	public CityEntity findByID(UUID id) {
 		// TODO Auto-generated method stub

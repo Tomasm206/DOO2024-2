@@ -1,25 +1,32 @@
 package co.edu.uco.ucobet.data.dao.impl.sql.sqlserver;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
-import co.edu.uco.crosscutting.exception.DataUcoBetException;
+
+import javax.lang.model.element.VariableElement;
+
+import co.edu.uco.ucobet.crosscutting.exceptions.*;
+import co.edu.uco.crosscutting.helpers.ObjectHelper;
+import co.edu.uco.crosscutting.helpers.TextHelper;
+import co.edu.uco.crosscutting.helpers.UUIDHelper;
 import co.edu.uco.ucobet.data.dao.CountryDAO;
 import co.edu.uco.ucobet.data.dao.impl.sql.SqlDAO;
 import co.edu.uco.ucobet.entity.CountryEntity;
 
 public class CountrySqlServerDAO extends SqlDAO implements CountryDAO {
-
-	protected CountrySqlServerDAO(Connection connection) {
+	
+	protected CountrySqlServerDAO(final Connection connection) {
 		super(connection);
-		// TODO Auto-generated constructor stub
 	}
 
 	public CountryEntity findById(final UUID id) {
-		
+		return null;
 	}
 	
 	@Override
@@ -27,7 +34,7 @@ public class CountrySqlServerDAO extends SqlDAO implements CountryDAO {
 		var countryEntityFilter = new CountryEntity();
 		countryEntityFilter.setId(id);
 		
-		var result = findByFilter(countryEntityFilter)
+		var result = findByFilter(countryEntityFilter);
 		
 		return (result.isEmpty()) ? new CountryEntity() : result.get(0);
 	}
@@ -44,19 +51,16 @@ public class CountrySqlServerDAO extends SqlDAO implements CountryDAO {
 		final var resulSelect = new ArrayList<CountryEntity>(); //Valor de los resultados almacenados
 		final var statementWasPrepared = false;
 		final var resultWasExecuted = false;
-		// Select
+		
 		createSelect(statement);
-		// From
 		createFrom(statement);
-		// Where
 		createWhere(statement,filter,parameters);
-		// Order By
 		createOrderBy(statement);
 		
 		try (final var preparedStatement 
-				= getConnection()).prepareStatement(statement.toString()){
-			for (int arrayIndex = 0; arrayIndex < parameters.size(); index++) {
-				var statementIndex = arrayIndex = arrayIndex;
+				= getConnection().preparedStatement(statement.toString()){
+			for (int arrayIndex = 0; arrayIndex < parameters.size(); arrayIndex++) {
+				var statementIndex = arrayIndex;
 				preparedStatement.setObject(statementIndex, parameters.get(arrayIndex));
 				
 			}
@@ -71,7 +75,7 @@ public class CountrySqlServerDAO extends SqlDAO implements CountryDAO {
 				resulSelect.add(countryEntityTmp);
 			} //Lo ejecunta tanto resultados tenga
 			
-		} catch (final SQLEException exception) {
+		} catch (final SQLException exception) {
 			var userMessage = "Por favor intente de nuevo y si el problema persiste ";
 			var technicalMessage = "Se ha presentado un problema al tratar de consultar la informacion de los paises en el filtro deseado en la base de datps SQL server, porfavor valide el log de errores";
 			
@@ -102,7 +106,7 @@ public class CountrySqlServerDAO extends SqlDAO implements CountryDAO {
 				statement.append("WHERE id = ? ");
 			}
 			
-			if(!TextHelper.isEmptyApplyingTrim(filter.getName())) {
+			if(!TextHelper.isEmptyapplyingTrim(filter.getName())) {
 				statement.append("WHERE ");
 				statement.append("NAME = ? ");
 				parameters.add(filter.getName());
