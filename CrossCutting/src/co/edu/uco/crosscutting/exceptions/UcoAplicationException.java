@@ -26,6 +26,7 @@ public class UcoAplicationException extends RuntimeException {
 		this.userMessage = TextHelper.applyTrim(userMessage);
 	}
 
+	
 	private void setLayer(final Layer layer) {
 		this.layer = ObjectHelper.getDefault(layer, Layer.GENERAL);
 	}

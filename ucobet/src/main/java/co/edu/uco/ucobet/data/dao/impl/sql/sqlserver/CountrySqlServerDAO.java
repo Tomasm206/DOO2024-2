@@ -58,7 +58,7 @@ public class CountrySqlServerDAO extends SqlDAO implements CountryDAO {
 		createOrderBy(statement);
 		
 		try (final var preparedStatement 
-				= getConnection().preparedStatement(statement.toString()){
+				= getConnection().preparedStatement(statement.toString())){
 			for (int arrayIndex = 0; arrayIndex < parameters.size(); arrayIndex++) {
 				var statementIndex = arrayIndex;
 				preparedStatement.setObject(statementIndex, parameters.get(arrayIndex));
