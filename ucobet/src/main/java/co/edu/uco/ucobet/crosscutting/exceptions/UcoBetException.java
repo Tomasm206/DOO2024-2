@@ -1,9 +1,9 @@
 package co.edu.uco.ucobet.crosscutting.exceptions;
 
-import co.edu.uco.crosscutting.exceptions.UcoAplicationException;
+import co.edu.uco.crosscutting.exceptions.UcoApplicationException;
 import co.edu.uco.crosscutting.exceptions.enums.Layer;
 
-public class UcoBetException extends UcoAplicationException {
+public class UcoBetException extends UcoApplicationException {
 
 	private static final long serialVersionUID = 1L;
 
@@ -29,7 +29,7 @@ public class UcoBetException extends UcoAplicationException {
 		return new UcoBetException(userMessage, technicalMessage, new Exception(), Layer.GENERAL);
 	}
 	// Sigue la misma logica
-	
+
 	// para que construir la base de excepciones?
 	// identificar que puede suceder, como puede fallar el sistema.
 }

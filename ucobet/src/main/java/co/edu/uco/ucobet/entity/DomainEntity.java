@@ -3,12 +3,12 @@ package co.edu.uco.ucobet.entity;
 import java.util.UUID;
 import co.edu.uco.crosscutting.helpers.UUIDHelper;
 
-class DomainEntity{
+class DomainEntity {
 
 	private UUID id;
-	
+
 	protected DomainEntity(final UUID id) {
-		 setId(id);
+		setId(id);
 	}
 
 	protected UUID getId() {
@@ -18,5 +18,5 @@ class DomainEntity{
 	protected void setId(final UUID id) {
 		this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());
 	}
-	
+
 }

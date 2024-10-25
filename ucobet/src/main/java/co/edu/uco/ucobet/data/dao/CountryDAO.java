@@ -4,6 +4,6 @@ import java.util.UUID;
 
 import co.edu.uco.ucobet.entity.CountryEntity;
 
-public interface CountryDAO extends RetrieveDAO <CountryEntity, UUID> {
+public interface CountryDAO extends RetrieveDAO<CountryEntity, UUID> {
 
 }

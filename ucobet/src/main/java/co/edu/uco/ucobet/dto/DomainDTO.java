@@ -6,7 +6,7 @@ import co.edu.uco.crosscutting.helpers.TextHelper;
 class DomainDTO {
 
 	private String id;
-	
+
 	protected DomainDTO(final String id) {
 		setIdentifier(id);
 	}
@@ -18,5 +18,5 @@ class DomainDTO {
 	protected void setIdentifier(final String id) {
 		this.id = TextHelper.getDefault(id, UUIDHelper.getDefaultAsString());
 	}
-	
+
 }

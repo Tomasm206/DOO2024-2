@@ -6,7 +6,8 @@ public class EntityUcoBetException extends UcoBetException {
 
 	private static final long serialVersionUID = 1L;
 
-	public EntityUcoBetException(final String userMessage, final String technicalMessage, final Exception rootException) {
+	public EntityUcoBetException(final String userMessage, final String technicalMessage,
+			final Exception rootException) {
 		super(userMessage, technicalMessage, rootException, Layer.ENTITY);
 	}
 

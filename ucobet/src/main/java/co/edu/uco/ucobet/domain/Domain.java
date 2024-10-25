@@ -5,9 +5,9 @@ import java.util.UUID;
 import co.edu.uco.crosscutting.helpers.UUIDHelper;
 
 class Domain {
-	
+
 	private UUID id;
-	
+
 	protected Domain(final UUID id) {
 		setId(id);
 	}
@@ -19,5 +19,5 @@ class Domain {
 	public void setId(final UUID id) {
 		this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());
 	}
-	
+
 }

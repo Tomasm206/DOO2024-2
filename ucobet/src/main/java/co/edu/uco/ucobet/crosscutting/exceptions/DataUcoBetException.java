@@ -2,7 +2,7 @@ package co.edu.uco.ucobet.crosscutting.exceptions;
 
 import co.edu.uco.crosscutting.exceptions.enums.Layer;
 
-public class DataUcoBetException extends UcoBetException { 
+public class DataUcoBetException extends UcoBetException {
 	// Se recomienda no tener mas de 5 padres,
 	// sin embargo hay una excepcion aqui ya que necesitamos
 	// llegar a los datos
@@ -10,7 +10,7 @@ public class DataUcoBetException extends UcoBetException {
 	private static final long serialVersionUID = 1L;
 
 	public DataUcoBetException(final String userMessage, final String technicalMessage, final Exception rootException) {
-		super(userMessage, technicalMessage, rootException, Layer.DATA); //Cambia ya que no manda Layer
+		super(userMessage, technicalMessage, rootException, Layer.DATA); // Cambia ya que no manda Layer
 	}
 
 	public static final DataUcoBetException crear(final String userMessage, final String technicalMessage,
