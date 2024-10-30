@@ -26,15 +26,21 @@ public final class UUIDHelper {
 	}
 
 	public static final boolean isDefault(final UUID value) {
-		return getDefault(value, getDefault()).equals(getDefault());
+		return isEqual(value, getDefault());
+//		return getDefault(value, getDefault()).equals(getDefault());
+//		Elaboramos codigo mas verboso
 	}
 
 	public static final boolean isDefault(final String uuidAsString) {
-		return getDefault(convertToUUID(uuidAsString), getDefault()).equals(getDefault());
+//		return getDefault(convertToUUID(uuidAsString), getDefault()).equals(getDefault());
+//		clean code (refactor)
+		return isEqual(convertToUUID(uuidAsString), getDefault());
 	}
 
 	public static String getDefaultAsString() {
-		// TODO Auto-generated method stub
-		return null;
+		return DEFAULT_UUID_STRING;
+	}
+	public static final boolean isEqual(final UUID valueOne, final UUID valueTwo) {
+		return getDefault(valueOne,getDefault()).compareTo(getDefault(valueTwo,getDefault())) == 0;
 	}
 }

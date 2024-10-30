@@ -1,6 +1,7 @@
 package co.edu.uco.crosscutting.helpers;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import co.edu.uco.crosscutting.exceptions.UcoApplicationException;

@@ -1,5 +1,8 @@
 package co.edu.uco.ucobet.businesslogic.adapter.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import co.edu.uco.crosscutting.helpers.ObjectHelper;
 import co.edu.uco.crosscutting.helpers.TextHelper;
 import co.edu.uco.crosscutting.helpers.UUIDHelper;
@@ -33,5 +36,17 @@ public final class CityDTOAdapter implements Adapter<CityDomain, CityDTO> {
 		var domainToAdapt = ObjectHelper.getDefault(data, CityDomain.create(UUIDHelper.getDefault(), TextHelper.EMPTY));
 		return CityDTO.create().setId("").setName(domainToAdapt.getName());
 	}
+
+	@Override
+	public List<CityDTO> adaptTarget(List<CityDomain> data) {
+		var results = new ArrayList<>();
+		
+		for (CityDomain domain : data) {
+			results.add(adaptTarget(domain));
+		}
+			
+		return results;
+	}
 //	Basicamente convierte de domain a dto y viceversa
+//	en el ultimo comvertimos lista de dto to domain
 }
