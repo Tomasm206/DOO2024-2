@@ -7,7 +7,7 @@ import co.edu.uco.ucobet.data.dao.impl.sql.sqlserver.SqlServerDAOFactory;
 
 public abstract class DAOFactory {
 
-	public final static DAOFactory getFactory(final DAOSource source) {
+	public static final DAOFactory getFactory(final DAOSource source) {
 		switch (source) {
 		case SQLSERVER: {
 			return new SqlServerDAOFactory();

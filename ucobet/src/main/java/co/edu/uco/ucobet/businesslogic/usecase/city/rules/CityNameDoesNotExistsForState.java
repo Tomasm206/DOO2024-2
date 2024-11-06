@@ -1,4 +1,4 @@
-package co.edu.uco.ucobet.businesslogic.usecase.city.impl;
+package co.edu.uco.ucobet.businesslogic.usecase.city.rules;
 
 import co.edu.uco.ucobet.businesslogic.usecase.RuleWithFactory;
 import co.edu.uco.ucobet.data.dao.DAOFactory;

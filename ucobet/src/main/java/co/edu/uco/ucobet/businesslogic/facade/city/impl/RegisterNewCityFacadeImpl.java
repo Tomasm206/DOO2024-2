@@ -12,7 +12,7 @@ import co.edu.uco.ucobet.dto.CityDTO;
 public class RegisterNewCityFacadeImpl implements RegisterNewCityFacade{
 	
 	@Override
-	public void execute(CityDTO data) {
+	public void execute(final CityDTO data) {
 //		abrir una conexion lo mas tarde posible y cerrarla lo antes posible 
 		var factory = DAOFactory.getFactory(DAOSource.SQLSERVER);
 
@@ -21,9 +21,10 @@ public class RegisterNewCityFacadeImpl implements RegisterNewCityFacade{
 			factory.initTransaction();
 			
 //			Lo que entra a la capa de negocio son los DTOS
-			var registerNewCityUseCase = new RegisterNewCityImpl(factory);
+			var registerNewCityUseCase = new RegisterNewCityImpl();
 			var cityDomain = CityDTOAdapter.getCityDTOAdapter().adaptSource(data);
 			
+			registerNewCityUseCase.execute(cityDomain);
 			
 			factory.commitTransaction();
 		} catch (final UcoBetException exception) {

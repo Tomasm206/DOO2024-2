@@ -1,5 +1,7 @@
 package co.edu.uco.ucobet.businesslogic.adapter.dto;
 
+import java.util.List;
+
 import co.edu.uco.crosscutting.helpers.ObjectHelper;
 import co.edu.uco.crosscutting.helpers.TextHelper;
 import co.edu.uco.crosscutting.helpers.UUIDHelper;
@@ -23,15 +25,23 @@ public class StateDTOAdapter implements Adapter<StateDomain, StateDTO> {
 
 	@Override
 	public StateDomain adaptSource(final StateDTO data) {
-		var dtoToAdapt = ObjectHelper.getDefault(data, StateDTO.create());
-		return StateDomain.create(UUIDHelper.convertToUUID(dtoToAdapt.getId()), data.getName());
+//		var dtoToAdapt = ObjectHelper.getDefault(data, StateDTO.create());
+//		return StateDomain.create(UUIDHelper.convertToUUID(dtoToAdapt.getId()), data.getName());
+		return null;
 	}
 
 	@Override
 	public StateDTO adaptTarget(final StateDomain data) {
-		var domainToAdapt = ObjectHelper.getDefault(data,
-				StateDomain.create(UUIDHelper.getDefault(), TextHelper.EMPTY));
-		return StateDTO.create().setId("").setName(domainToAdapt.getName());
+//		var domainToAdapt = ObjectHelper.getDefault(data,
+//				StateDomain.create(UUIDHelper.getDefault(), TextHelper.EMPTY));
+//		return StateDTO.create().setId("").setName(domainToAdapt.getName());
+		return null;
 	}
 //	Basicamente convierte de domain a dto y viceversa
+
+	@Override
+	public List<StateDTO> adaptTarget(List<StateDomain> data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

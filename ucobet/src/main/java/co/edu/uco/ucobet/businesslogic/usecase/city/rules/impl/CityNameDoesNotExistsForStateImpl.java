@@ -1,6 +1,6 @@
 package co.edu.uco.ucobet.businesslogic.usecase.city.rules.impl;
 
-import co.edu.uco.ucobet.businesslogic.usecase.city.impl.CityNameDoesNotExistsForState;
+import co.edu.uco.ucobet.businesslogic.usecase.city.rules.CityNameDoesNotExistsForState;
 import co.edu.uco.ucobet.crosscutting.exceptions.BusinessLogicUcobetException;
 import co.edu.uco.ucobet.data.dao.DAOFactory;
 import co.edu.uco.ucobet.domain.CityDomain;

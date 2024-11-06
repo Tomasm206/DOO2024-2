@@ -27,19 +27,21 @@ public final class CityDTOAdapter implements Adapter<CityDomain, CityDTO> {
 
 	@Override
 	public CityDomain adaptSource(final CityDTO data) {
-		var dtoToAdapt = ObjectHelper.getDefault(data, CityDTO.create());
-		return CityDomain.create(UUIDHelper.convertToUUID(dtoToAdapt.getId()), data.getName());
+//		var dtoToAdapt = ObjectHelper.getDefault(data, CityDTO.create());
+//		return CityDomain.create(UUIDHelper.convertToUUID(dtoToAdapt.getId()), data.getName());
+		return null;
 	}
 
 	@Override
 	public CityDTO adaptTarget(final CityDomain data) {
-		var domainToAdapt = ObjectHelper.getDefault(data, CityDomain.create(UUIDHelper.getDefault(), TextHelper.EMPTY));
-		return CityDTO.create().setId("").setName(domainToAdapt.getName());
+//		var domainToAdapt = ObjectHelper.getDefault(data, CityDomain.create(UUIDHelper.getDefault(), TextHelper.EMPTY));
+//		return CityDTO.create().setId("").setName(domainToAdapt.getName());
+		return null;
 	}
 
 	@Override
-	public List<CityDTO> adaptTarget(List<CityDomain> data) {
-		var results = new ArrayList<>();
+	public List<CityDTO> adaptTarget(final List<CityDomain> data) {
+		var results = new ArrayList<CityDTO>();
 		
 		for (CityDomain domain : data) {
 			results.add(adaptTarget(domain));
